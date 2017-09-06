@@ -1,5 +1,5 @@
 # Thomas Was Late
-Small 2d platformer with "Thomas Was Alone" game mechanics, which is based on ideas and concepts from a "Beginning C++ Game Programming" book by John Horton.
+Small 2d platformer with "Thomas Was Alone"-like game mechanics, which is based on ideas and concepts from a "Beginning C++ Game Programming" book by John Horton.
 
 Hotkeys
 --------
