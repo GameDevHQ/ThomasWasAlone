@@ -1,6 +1,8 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include "TextureManager.h"
+#include "Thomas.h"
+#include "Bob.h"
 
 
 using namespace sf;
@@ -16,6 +18,10 @@ private:
 
     TextureManager& textureManager;
     RenderWindow m_Window;
+
+    // Game characters;
+    Thomas m_Thomas;
+    Bob m_Bob;
 
     // Game views (for a few players too)
     View m_MainView;

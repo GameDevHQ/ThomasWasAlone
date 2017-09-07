@@ -35,4 +35,14 @@ void Engine::input()
             }
         }
     }
+
+    if (m_Thomas.handleInput())
+    {
+        // TODO: Add sound
+    }
+
+    if (m_Bob.handleInput())
+    {
+        // TODO: Add sound
+    }
 }
