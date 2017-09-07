@@ -68,6 +68,7 @@ private:
     void update(float timedelta);
     void draw();
     void loadLevel();
+    bool detectCollisions(PlayableCharacter& character);
 public:
     Engine();
     void run();

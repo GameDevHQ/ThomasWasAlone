@@ -15,6 +15,26 @@ void Engine::update(float timedelta)
         m_Thomas.update(timedelta);
         m_Bob.update(timedelta);
 
+        // Detect collision
+        if (detectCollisions(m_Thomas) && detectCollisions(m_Bob))
+        {
+            m_NewLevelRequired = true;
+        }
+        else
+        {
+            detectCollisions(m_Bob);
+        }
+
+        // Let Thomas and Bob jump on each others heads
+        if (m_Bob.getFeet().intersects(m_Thomas.getHead()))
+        {
+            m_Bob.stopFalling(m_Thomas.getHead().top);
+        }
+        else if (m_Thomas.getFeet().intersects(m_Bob.getHead()))
+        {
+            m_Thomas.stopFalling(m_Bob.getHead().top);
+        }
+
         m_TimeRemaining -= timedelta;
 
         // The time is up?
