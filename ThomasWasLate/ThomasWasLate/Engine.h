@@ -1,9 +1,11 @@
 #pragma once
+#include <vector>
 #include "SFML/Graphics.hpp"
 #include "TextureManager.h"
 #include "Thomas.h"
 #include "Bob.h"
 #include "LevelManager.h"
+#include "SoundManager.h"
 
 
 using namespace sf;
@@ -24,7 +26,9 @@ private:
     Thomas m_Thomas;
     Bob m_Bob;
 
+    // Managers for the levels and sounds
     LevelManager m_LevelManager;
+    SoundManager m_SoundManager;
 
     // Game views (for a few players too)
     View m_MainView;
@@ -59,9 +63,10 @@ private:
     // Is it time for a new/first level?
     bool m_NewLevelRequired = true;
 
-    VertexArray m_VALevel;       // The vertex array for the level tiles
-    int** m_ArrayLevel = NULL;   // The 2d array with the map for the level
-    Texture m_TextureTiles;      // Texture for the level tiles
+    VertexArray m_VALevel;                 // The vertex array for the level tiles
+    int** m_ArrayLevel = NULL;             // The 2d array with the map for the level
+    Texture m_TextureTiles;                // Texture for the level tiles
+    std::vector<Vector2f> m_FireEmitters;  // A vector of Vector2f for the fire emitter locations
 
     // Private functions for internal use only
     void input();
@@ -69,6 +74,7 @@ private:
     void draw();
     void loadLevel();
     bool detectCollisions(PlayableCharacter& character);
+    void populateEmitters(std::vector<Vector2f>& vSoundEmitters, int** arrayLevel);
 public:
     Engine();
     void run();

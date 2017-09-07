@@ -19,6 +19,7 @@ void Engine::update(float timedelta)
         if (detectCollisions(m_Thomas) && detectCollisions(m_Bob))
         {
             m_NewLevelRequired = true;
+            m_SoundManager.playReachGoal();
         }
         else
         {
@@ -41,6 +42,24 @@ void Engine::update(float timedelta)
         if (m_TimeRemaining < 0)
         {
             m_NewLevelRequired = true;
+        }
+    }
+
+    // Check if a fire sound needs to be played
+    for (auto it = m_FireEmitters.begin(); it != m_FireEmitters.end(); it++)
+    {
+        // Where is this emitter?
+        float posX = (*it).x;
+        float posY = (*it).y;
+
+        // Is the emiter near the player? 
+        // Make a 500 pixel rectangle around the emitter
+        FloatRect localRect(posX - 250, posY - 250, 500, 500);
+
+        // Is the player inside localRect?
+        if (m_Thomas.getPosition().intersects(localRect))
+        {
+            m_SoundManager.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
         }
     }
 

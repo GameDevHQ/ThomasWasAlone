@@ -12,10 +12,10 @@ bool Engine::detectCollisions(PlayableCharacter& character)
     block.height = static_cast<float>(TILE_SIZE);
 
     // Build a zone around thomas to detect collisions
-    int startX = static_cast<float>(detectionZone.left / TILE_SIZE) - 1;
-    int startY = static_cast<float>(detectionZone.top / TILE_SIZE) - 1;
-    int endX = static_cast<float>(detectionZone.left / TILE_SIZE) + 2;
-    int endY = static_cast<float>(detectionZone.top / TILE_SIZE) + 3;
+    int startX = static_cast<int>(detectionZone.left / TILE_SIZE) - 1;
+    int startY = static_cast<int>(detectionZone.top / TILE_SIZE) - 1;
+    int endX = static_cast<int>(detectionZone.left / TILE_SIZE) + 2;
+    int endY = static_cast<int>(detectionZone.top / TILE_SIZE) + 3;
 
     // Make ensure that the character is not out of the boundaries
     if (startX < 0)
@@ -38,7 +38,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
     // Shall we respawn the player at beginning of the game level?
     if (!character.getPosition().intersects(level))
     {
-        character.spawn(m_LevelManager.getStartPosition(), GRAVITY);
+        character.spawn(m_LevelManager.getStartPosition(), static_cast<float>(GRAVITY));
     }
 
     for (int x = startX; x < endX; x++)
@@ -46,8 +46,8 @@ bool Engine::detectCollisions(PlayableCharacter& character)
         for (int y = startY; y < endY; y++)
         {
             // Initialize the starting position of the current block
-            block.left = x * TILE_SIZE;
-            block.top = y * TILE_SIZE;
+            block.left = static_cast<float>(x * TILE_SIZE);
+            block.top = static_cast<float>(y * TILE_SIZE);
 
             // Has character been burnt or drowned?
             // Use head as this allows him to sink a bit
@@ -55,18 +55,17 @@ bool Engine::detectCollisions(PlayableCharacter& character)
             {
                 if (character.getHead().intersects(block))
                 {
-                    character.spawn(m_LevelManager.getStartPosition(), GRAVITY);
+                    character.spawn(m_LevelManager.getStartPosition(), static_cast<float>(GRAVITY));
 
                     // Fire tile
                     if (m_ArrayLevel[y][x] == 2)
                     {
-                        // TODO: Add a sound
-
+                        m_SoundManager.playFallInFire();
                     }
                     // Water tile
                     else                     
                     {
-                        // TODO: Add a sound
+                        m_SoundManager.playFallInWater();
                     }
                 }
             }

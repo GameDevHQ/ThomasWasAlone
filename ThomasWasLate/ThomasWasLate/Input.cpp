@@ -38,11 +38,11 @@ void Engine::input()
 
     if (m_Thomas.handleInput())
     {
-        // TODO: Add sound
+        m_SoundManager.playJump();
     }
 
     if (m_Bob.handleInput())
     {
-        // TODO: Add sound
+        m_SoundManager.playJump();
     }
 }
