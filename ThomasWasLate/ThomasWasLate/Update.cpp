@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <sstream>
 #include "Engine.h"
 
 
@@ -80,5 +81,22 @@ void Engine::update(float timedelta)
         {
             m_MainView.setCenter(m_Bob.getCenter());
         }
+    }
+
+    // Update the HUD every m_TargetFramesPerHUDUpdate frames
+    m_FramesSinceLastHUDUpdate++;
+    if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate)
+    {
+        std::stringstream ssTime;
+        std::stringstream ssLevel;
+
+        // Update the time text
+        ssTime << (int)m_TimeRemaining;
+        m_HUD.setTime(ssTime.str());
+
+        // Update the level text
+        ssLevel << "Level:" << m_LevelManager.getCurrentLevel();
+        m_HUD.setLevel(ssLevel.str());
+        m_FramesSinceLastHUDUpdate = 0;
     }
 }

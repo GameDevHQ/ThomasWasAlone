@@ -6,6 +6,7 @@
 #include "Bob.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "HUD.h"
 
 
 using namespace sf;
@@ -29,6 +30,11 @@ private:
     // Managers for the levels and sounds
     LevelManager m_LevelManager;
     SoundManager m_SoundManager;
+
+    // The game HUD 
+    HUD m_HUD;
+    int m_FramesSinceLastHUDUpdate = 0;
+    int m_TargetFramesPerHUDUpdate = 500;
 
     // Game views (for a few players too)
     View m_MainView;
