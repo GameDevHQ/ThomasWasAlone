@@ -4,16 +4,9 @@
 
 void Engine::update(float timedelta)
 {
-    // TODO: Move this part of code to a dedicated loadLevel() function later
     if (m_NewLevelRequired)
     {
-        // Spawn Thomas and Bob
-        m_Thomas.spawn(Vector2f(0.0f, 0.0f), GRAVITY);
-        m_Bob.spawn(Vector2f(100.0f, 0.0f), GRAVITY);
-
-        // Make sure spawn is called only once
-        m_TimeRemaining = 10;
-        m_NewLevelRequired = false;
+        loadLevel();
     }
 
     if (m_Playing)

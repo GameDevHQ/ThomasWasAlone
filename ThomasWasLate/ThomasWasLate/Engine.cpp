@@ -3,7 +3,7 @@
 
 
 Engine::Engine():
-textureManager(TextureManager::getInstance())
+m_TextureManager(TextureManager::getInstance())
 {
     // Get the display resolution
     Vector2f resolution;
@@ -24,8 +24,11 @@ textureManager(TextureManager::getInstance())
     m_BGRightView.setViewport(FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
 
     // Set background of the game
-    m_BackgroundTexture = textureManager.getTexture("Resources/Graphics/background.png");
+    m_BackgroundTexture = m_TextureManager.getTexture("Resources/Graphics/background.png");
     m_BackgroundSprite.setTexture(m_BackgroundTexture);
+
+    // Load the texture for the background vertex array
+    m_TextureTiles = m_TextureManager.getTexture("Resources/Graphics/tiles_sheet.png");
 }
 
 
