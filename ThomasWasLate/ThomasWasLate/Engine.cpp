@@ -32,6 +32,16 @@ m_TextureManager(TextureManager::getInstance())
 
     // Initialize the particle system
     m_ParticleSystem.init(PARTICLES_COUNT);
+
+    // Can this graphics card use shaders?
+    if (!sf::Shader::isAvailable())
+    {
+        m_Window.close();
+    }
+    else
+    {
+        m_RippleShader.loadFromFile("Resources/Shaders/vertShader.vert", "Resources/Shaders/rippleShader.frag");
+    }
 }
 
 

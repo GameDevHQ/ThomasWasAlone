@@ -36,6 +36,9 @@ private:
     ParticleSystem m_ParticleSystem;
     const int PARTICLES_COUNT = 1000;
 
+    // Declare a shader for the background
+    Shader m_RippleShader;
+
     // The game HUD 
     HUD m_HUD;
     int m_FramesSinceLastHUDUpdate = 0;
