@@ -29,6 +29,9 @@ m_TextureManager(TextureManager::getInstance())
 
     // Load the texture for the background vertex array
     m_TextureTiles = m_TextureManager.getTexture("Resources/Graphics/tiles_sheet.png");
+
+    // Initialize the particle system
+    m_ParticleSystem.init(PARTICLES_COUNT);
 }
 
 

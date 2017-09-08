@@ -99,4 +99,9 @@ void Engine::update(float timedelta)
         m_HUD.setLevel(ssLevel.str());
         m_FramesSinceLastHUDUpdate = 0;
     }
+
+    if (m_ParticleSystem.isRunning())
+    {
+        m_ParticleSystem.update(timedelta);
+    }
 }

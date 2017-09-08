@@ -6,6 +6,7 @@
 #include "Bob.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "ParticleSystem.h"
 #include "HUD.h"
 
 
@@ -30,6 +31,10 @@ private:
     // Managers for the levels and sounds
     LevelManager m_LevelManager;
     SoundManager m_SoundManager;
+
+    // Particle systems
+    ParticleSystem m_ParticleSystem;
+    const int PARTICLES_COUNT = 1000;
 
     // The game HUD 
     HUD m_HUD;
