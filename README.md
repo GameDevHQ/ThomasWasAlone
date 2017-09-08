@@ -8,7 +8,7 @@ Hotkeys
 - "Q" switch camera from Thomas to Bob (and vice versa) in the fullscreen mode
 - "W" / "A" / "D" for movement Thomas
 - "Up arrow" / "Left arrow" / "Right arrow" for movement Bob
-- "F1" for enable/disable a split-screen
+- "F1" for enable/disable the split-screen mode
 
 Requirements
 ------------
