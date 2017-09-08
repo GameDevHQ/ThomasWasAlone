@@ -3,6 +3,12 @@ Small 2d platformer with "Thomas Was Alone"-like game mechanics, which is based 
 
 Hotkeys
 --------
+- "Esc" for a exit from the game
+- "Enter" for start / pause the game
+- "Q" switch camera from Thomas to Bob (and vice versa)
+- "W" / "A" / "D" for movement Thomas
+- "Up arrow" / "Left arrow" / "Right arrow" for movement Bob
+- "F1" for enable/disable a split-screen
 
 Requirements
 ------------
@@ -25,5 +31,9 @@ After opening the project in Visual Studio, go to "Project -> ThomasWasLate prop
 Screenshots
 -----------
 <p align="center">
-  <img src=""/>
+  <img src="https://github.com/GameDevHQ/ThomasWasLate/blob/master/Screenshots/Screenshot_1.png"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/GameDevHQ/ThomasWasLate/blob/master/Screenshots/Screenshot_2.png"/>
 </p>
